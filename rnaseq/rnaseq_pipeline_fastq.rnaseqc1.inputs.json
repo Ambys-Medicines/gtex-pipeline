@@ -1,0 +1,12 @@
+{
+  "rnaseq_pipeline_fastq_workflow.prefix": "CL100148068",
+  "rnaseq_pipeline_fastq_workflow.rnaseqc1.bam_file": "s3://ambys-cromwell/cromwell-execution/rnaseq_pipeline_fastq_workflow/0ffd1a64-14e3-4fd9-8841-151dd6f68e86/call-markduplicates/CL100148068.Aligned.sortedByCoord.out.md.bam",
+  "rnaseq_pipeline_fastq_workflow.rnaseqc1.genes_gtf": "s3://ambys-genomic-references/rnaseq/gencode.v26.genes.gtf",
+  "rnaseq_pipeline_fastq_workflow.rnaseqc1.genome_fasta_tarball": "s3://ambys-genomic-references/genotype/Homo_sapiens_assembly38_noALT_noHLA_noDecoy_ERCC.tar.gz",
+  "rnaseq_pipeline_fastq_workflow.rnaseqc1.rnaseq1_script": "s3://ambys-genomic-references/rnaseq/gtex_v8/run_rnaseqc1.py",
+  "rnaseq_pipeline_fastq_workflow.rnaseqc1.rnaseqc_flags": "noDoC strictMode singleEnd",
+  "rnaseq_pipeline_fastq_workflow.rnaseqc1.memory": "32",
+  "rnaseq_pipeline_fastq_workflow.rnaseqc1.disk_space": "375",
+  "rnaseq_pipeline_fastq_workflow.rnaseqc1.num_threads": "4",
+  "rnaseq_pipeline_fastq_workflow.rnaseqc1.num_preempt": "0"
+}

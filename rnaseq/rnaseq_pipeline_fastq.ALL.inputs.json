@@ -1,0 +1,17 @@
+{
+  "rnaseq_pipeline_fastq_workflow.prefix": "CL100148068",
+  "rnaseq_pipeline_fastq_workflow.memory": "32",
+  "rnaseq_pipeline_fastq_workflow.disk_space": "375",
+  "rnaseq_pipeline_fastq_workflow.num_threads": "4",
+  "rnaseq_pipeline_fastq_workflow.num_preempt": "0",
+  "rnaseq_pipeline_fastq_workflow.star.fastq1": "s3://s3-external/733900ca-433d-45fd-ac53-89cb09a1ede0/bgi/F19FTSUSAT1139/RawData/Sample1/CL100148068_L01_507_1.fq.gz",
+  "rnaseq_pipeline_fastq_workflow.star.star_index": "s3://ambys-genomic-references/rnaseq/star_index_oh50/star_index_oh50.tar",
+  "rnaseq_pipeline_fastq_workflow.markduplicates.sorting_collection_size_ratio": "0.25",
+  "rnaseq_pipeline_fastq_workflow.markduplicates.max_records_in_ram": "500000",
+  "rnaseq_pipeline_fastq_workflow.rsem.rsem_reference": "s3://ambys-genomic-references/rnaseq/rsem_reference.tar",
+  "rnaseq_pipeline_fastq_workflow.rsem.paired_end": "false",
+  "rnaseq_pipeline_fastq_workflow.rnaseqc1.genes_gtf": "s3://ambys-genomic-references/rnaseq/gencode.v26.genes.gtf",
+  "rnaseq_pipeline_fastq_workflow.rnaseqc1.genome_fasta_tarball": "s3://ambys-genomic-references/genotype/Homo_sapiens_assembly38_noALT_noHLA_noDecoy_ERCC.tar.gz",
+  "rnaseq_pipeline_fastq_workflow.rnaseqc1.rnaseq1_script": "s3://ambys-genomic-references/rnaseq/gtex_v8/run_rnaseqc1.py",
+  "rnaseq_pipeline_fastq_workflow.rnaseqc1.rnaseqc_flags": "noDoC strictMode singleEnd"
+}

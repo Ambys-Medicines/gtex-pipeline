@@ -100,13 +100,26 @@ if not os.path.exists(args.output_dir):
     os.makedirs(args.output_dir)
 
 # run STAR
-subprocess.check_call(cmd, shell=True, executable='/bin/bash')
+print('['+datetime.now().strftime("%b %d %H:%M:%S")+'] Running STAR with the following command:', flush=True)
+print(cmd, flush=True)
+#subprocess.check_call(cmd, shell=True, executable='/bin/bash')
 
 # postprocessing
 with cd(args.output_dir):
     # set permissions
     for r,d,f in os.walk(args.prefix+'._STARpass1'):
         os.chmod(r, 0o755)
+
+    # traverse current directory and list the files
+    # r=root, d=directories, f = files
+    print('['+datetime.now().strftime("%b %d %H:%M:%S")+'] Listing files...', flush=True)
+    files = []
+    for r, d, f in os.walk(path):
+        for file in f:
+            files.append(os.path.join(r, file))
+
+    for f in files:
+        print(f)
 
     # delete unneeded files
     shutil.rmtree(args.prefix+'._STARgenome')
@@ -127,21 +140,29 @@ with cd(args.output_dir):
     print('['+datetime.now().strftime("%b %d %H:%M:%S")+'] Finished indexing BAM', flush=True)
 
     # rename and compress outputs
+    print('['+datetime.now().strftime("%b %d %H:%M:%S")+'] gzipping SJ.pass1.out.tab output', flush=True)
     subprocess.check_call('gzip '+args.prefix+'.SJ.out.tab', shell=True, executable='/bin/bash')
     with cd(args.prefix+'._STARpass1'):
         os.rename('SJ.out.tab', args.prefix+'.SJ.pass1.out.tab')
         subprocess.check_call('gzip '+args.prefix+'.SJ.pass1.out.tab', shell=True, executable='/bin/bash')
+        print('['+datetime.now().strftime("%b %d %H:%M:%S")+'] Finished indexing gzipping SJ.pass1.out.tab output', flush=True)
 
     if os.path.exists(args.prefix+'.ReadsPerGene.out.tab'):
+        print('['+datetime.now().strftime("%b %d %H:%M:%S")+'] gzipping ReadsPerGene.out.tab output', flush=True)
         subprocess.check_call('gzip '+args.prefix+'.ReadsPerGene.out.tab', shell=True, executable='/bin/bash')
+        print('['+datetime.now().strftime("%b %d %H:%M:%S")+'] Finished gzipping ReadsPerGene.out.tab output', flush=True)
 
     # sort and index chimeric BAM
     if os.path.exists(args.prefix+'.Chimeric.out.sam'):
+        print('['+datetime.now().strftime("%b %d %H:%M:%S")+'] Sorting and indexing chimeric BAM output', flush=True)
         cmd = 'samtools sort --threads '+args.threads+' -o '+args.prefix+'.Chimeric.out.sorted.bam '+args.prefix+'.Chimeric.out.sam'
         subprocess.check_call(cmd, shell=True, executable='/bin/bash')
         cmd = 'samtools index '+args.prefix+'.Chimeric.out.sorted.bam'
         subprocess.check_call(cmd, shell=True, executable='/bin/bash')
         os.remove(args.prefix+'.Chimeric.out.sam')
+        print('['+datetime.now().strftime("%b %d %H:%M:%S")+'] Finished sorting and indexing chimeric BAM output', flush=True)
 
     if os.path.exists(args.prefix+'.Chimeric.out.junction'):
+        print('['+datetime.now().strftime("%b %d %H:%M:%S")+'] gzipping chimeric junction output', flush=True)
         subprocess.check_call('gzip '+args.prefix+'.Chimeric.out.junction', shell=True, executable='/bin/bash')
+        print('['+datetime.now().strftime("%b %d %H:%M:%S")+'] Finished gzipping chimeric BAM output', flush=True)

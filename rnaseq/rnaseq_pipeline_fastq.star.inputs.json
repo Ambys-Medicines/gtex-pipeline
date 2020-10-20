@@ -1,0 +1,9 @@
+{
+  "rnaseq_pipeline_fastq_workflow.prefix": "CL100148068",
+  "rnaseq_pipeline_fastq_workflow.star.fastq1": "s3://s3-external/733900ca-433d-45fd-ac53-89cb09a1ede0/bgi/F19FTSUSAT1139/RawData/Sample1/CL100148068_L01_507_1.fq.gz",
+  "rnaseq_pipeline_fastq_workflow.star.star_index": "s3://ambys-genomic-references/rnaseq/star_index_oh50/star_index_oh50.tar",
+  "rnaseq_pipeline_fastq_workflow.star.memory": "32",
+  "rnaseq_pipeline_fastq_workflow.star.num_threads": "4",
+  "rnaseq_pipeline_fastq_workflow.star.disk_space": "200",
+  "rnaseq_pipeline_fastq_workflow.star.num_preempt": "0"
+}

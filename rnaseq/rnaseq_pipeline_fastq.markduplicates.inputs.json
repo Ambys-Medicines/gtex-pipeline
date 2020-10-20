@@ -1,0 +1,10 @@
+{
+  "rnaseq_pipeline_fastq_workflow.prefix": "CL100148068",
+  "rnaseq_pipeline_fastq_workflow.markduplicates.input_bam": "s3://ambys-cromwell/cromwell-execution/rnaseq_pipeline_fastq_workflow/9b84b6a8-0841-48a1-bf43-cf9b9d547e37/call-star/star_out/CL100148068.Aligned.sortedByCoord.out.bam", 
+  "rnaseq_pipeline_fastq_workflow.markduplicates.disk_space": "375",
+  "rnaseq_pipeline_fastq_workflow.markduplicates.num_threads": "4",
+  "rnaseq_pipeline_fastq_workflow.markduplicates.num_preempt": "0",
+  "rnaseq_pipeline_fastq_workflow.markduplicates.sorting_collection_size_ratio": "0.25",
+  "rnaseq_pipeline_fastq_workflow.markduplicates.memory": "4",
+  "rnaseq_pipeline_fastq_workflow.markduplicates.max_records_in_ram": "500000"
+}
